@@ -25,7 +25,7 @@
     height: 20px;
     border: none;
     border-bottom: 2px solid lightgray;
-    font-size: 1.2rem;
+    font-size: 1rem;
     color: #000000;
 }
 .add-input:focus{

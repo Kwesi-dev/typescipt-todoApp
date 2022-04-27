@@ -1,19 +1,31 @@
-import React from 'react'
 import TodolistCard from '../todolistCard/TodolistCard'
 import "./todoLists.css"
-const TodoLists = () => {
+import { useState } from "react"
+type todolistsProps = {
+  todolist:{
+    key: number
+    data: string
+  }[],
+  deleteTodo: (key: number) => void
+  // editTodo: (key: number) => void
+  // saveTodo: (text: string) => void
+}
+const TodoLists = ({todolist, deleteTodo}: todolistsProps) => {
+  const [text, setText] = useState<string>("")
   return (
     <div className="todoLists">
       <section className="edit-container">
         <div className="container-left">
           <p>Edit</p>
-          <input type="text" className="edit-input"/>
+          <input type="text" className="edit-input" value={text} onChange={(e)=>setText(e.target.value)}/>
         </div>
-        <button className="SaveBtn">Save</button>
+        <div className="container-right">
+          <button className="SaveBtn">Save</button>
+        </div>
       </section>
-      <TodolistCard/>
-      <TodolistCard/>
-      <TodolistCard/>
+      {todolist.map((todo)=>
+        <TodolistCard key={todo.key} todo={todo} deleteTodo={deleteTodo}/>
+      )}
     </div>
   )
 }

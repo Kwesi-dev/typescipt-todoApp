@@ -21,3 +21,10 @@
   top: 0;
   z-index: -1;
 }
+.banner{
+  height: 100%;
+  margin-top: 40px;}
+.banner p{
+  font-size: 0.9rem;
+  background-color: yellow;
+}
